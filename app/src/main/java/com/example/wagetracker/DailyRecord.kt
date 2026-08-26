@@ -14,5 +14,5 @@ data class DailyRecord(
         get() = (isoDate as? String)?.take(7) ?: ""
 
     val dayTotal: Double
-        get() = cardTips + cashTips + cashPaidIn
+        get() = cardTips + cashTips
 }

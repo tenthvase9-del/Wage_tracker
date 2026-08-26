@@ -228,15 +228,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/total_tips"
+                    android:text="@string/cash_paid_in"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="10sp" />
                 <TextView
-                    android:id="@+id/tvTotalAllTips"
+                    android:id="@+id/tvTotalPaidIn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R0"
-                    android:textColor="@color/wage_cash"
+                    android:textColor="@color/wage_paid_in"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:fontFeatureSettings="tnum" />
@@ -258,15 +258,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/cash_paid_in"
+                    android:text="@string/total_tips"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="10sp" />
                 <TextView
-                    android:id="@+id/tvTotalPaidIn"
+                    android:id="@+id/tvTotalAllTips"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="R0"
-                    android:textColor="@color/wage_paid_in"
+                    android:textColor="@color/wage_cash"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:fontFeatureSettings="tnum" />
