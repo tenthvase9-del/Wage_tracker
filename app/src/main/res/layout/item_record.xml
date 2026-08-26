@@ -43,16 +43,6 @@
             android:fontFeatureSettings="tnum" />
 
         <TextView
-            android:id="@+id/tvCashPaidIn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.9"
-            android:gravity="end"
-            android:textColor="@color/wage_paid_in"
-            android:textSize="14sp"
-            android:fontFeatureSettings="tnum" />
-
-        <TextView
             android:id="@+id/tvDayTotal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -60,6 +50,16 @@
             android:gravity="end"
             android:textColor="?attr/colorOnSurface"
             android:textStyle="bold"
+            android:textSize="14sp"
+            android:fontFeatureSettings="tnum" />
+
+        <TextView
+            android:id="@+id/tvCashPaidIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:gravity="end"
+            android:textColor="@color/wage_paid_in"
             android:textSize="14sp"
             android:fontFeatureSettings="tnum" />
     </LinearLayout>
