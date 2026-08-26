@@ -27,6 +27,7 @@ object BackupManager {
             val json = context.contentResolver.openInputStream(uri)?.use {
                 it.bufferedReader().readText()
             } ?: return false
+            if (json.trim().isEmpty()) return false
             val data = gson.fromJson(json, BackupData::class.java) ?: return false
             val repo = WageRepository(context)
             repo.clearAll()
@@ -35,6 +36,23 @@ object BackupManager {
             true
         } catch (e: Exception) {
             false
+        }
+    }
+
+    fun restoreWithError(context: Context, uri: Uri): String? {
+        return try {
+            val json = context.contentResolver.openInputStream(uri)?.use {
+                it.bufferedReader().readText()
+            } ?: return "Failed to read file"
+            if (json.trim().isEmpty()) return "File is empty"
+            val data = gson.fromJson(json, BackupData::class.java) ?: return "Invalid JSON format"
+            val repo = WageRepository(context)
+            repo.clearAll()
+            for (r in data.records) repo.addRecord(r)
+            for (p in data.paidMonths) repo.markMonthPaid(p)
+            null
+        } catch (e: Exception) {
+            e.message
         }
     }
 }

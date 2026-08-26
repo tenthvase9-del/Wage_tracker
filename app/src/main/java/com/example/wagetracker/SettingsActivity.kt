@@ -48,15 +48,11 @@ class SettingsActivity : AppCompatActivity() {
             ActivityResultContracts.OpenDocument()
         ) { uri: Uri? ->
             if (uri == null) return@registerForActivityResult
-            try {
-                val ok = BackupManager.restore(requireContext(), uri)
-                if (ok) {
-                    Toast.makeText(requireContext(), "Data restored", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Restore failed: invalid file", Toast.LENGTH_LONG).show()
-                }
-            } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Restore failed: ${e.message}", Toast.LENGTH_LONG).show()
+            val error = BackupManager.restoreWithError(requireContext(), uri)
+            if (error == null) {
+                Toast.makeText(requireContext(), "Data restored", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Restore failed: $error", Toast.LENGTH_LONG).show()
             }
         }
 
